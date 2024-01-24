@@ -1,6 +1,18 @@
 <?php
-require "function.php";
+$config = require('config.php');
+require('function.php');
 
-$header ="Home";
+//require('route.php');
 
-require "view/index.view.php";
+
+//Connect to database 
+require("Database.php");
+
+$db = new Database($config["database"]);
+
+$id = $_GET['id'];
+$query="SELECT title FROM blogs where id = :id";
+
+$posts = $db->query($query,[":id"=>$id])->fetch();
+dd($posts);
+
