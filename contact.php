@@ -1,2 +1,4 @@
 <?php
-require "contact.view.php";
+
+$header ="Contact";
+require "view/contact.view.php";
